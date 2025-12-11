@@ -134,3 +134,5 @@ body {
   }
 }
 
+.count-box {min-width: 40px;
+padding: .5rem;}
