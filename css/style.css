@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+:root {
+  --primary: #ffffff;
+  --secondary: #b0e0e6;
+  --ink: #1f2a36;
+  --soft: #f6fbfd;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--soft);
+  color: var(--ink);
+  scroll-behavior: smooth;
+}
+
+.navbar-brand {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.navbar {
+  display: none;
+}
+
+.hero {
+  /* min-height: 90vh; */
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(176,224,230,.8), rgba(31,42,54,.65)), url("../images/hero_img.JPG") center/cover no-repeat;
+  color: #fff;
+  background-position-y: 65%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.2), transparent 40%),
+              radial-gradient(circle at 80% 10%, rgba(255,255,255,.18), transparent 35%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 720px;
+}
+
+.hero-title {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.hero-actions {
+  display: none;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.count-box {
+  min-width: 90px;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(8px);
+}
+
+.count-number {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.count-label {
+  font-size: .85rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.story-line {
+  border-left: 2px dashed var(--secondary);
+}
+
+.card {
+  border: none;
+  box-shadow: 0 1rem 2.5rem rgba(0,0,0,.07);
+  background: #fff;
+}
+
+.btn-rose {
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+}
+
+.btn-rose:hover {
+  background: #9aceda;
+  color: #fff;
+}
+
+.footer {
+  background: var(--ink);
+  color: #fff;
+}
+
+/*hidden elements*/
+.hidden {
+  display: none;
+}
+
