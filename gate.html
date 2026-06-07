@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enter Password · Katrina & Aldrin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="gate-page">
+  <main class="gate-shell">
+    <div class="gate-card">
+      <div class="gate-mark">
+        <img class="monogram-img monogram-img--olive" src="images/monogram.gif" alt="">
+      </div>
+      <h1 class="gate-title">Katrina & Aldrin</h1>
+      <p class="gate-subtitle">Please enter the password to view our wedding website.</p>
+
+      <form id="gate-form" class="mt-4" autocomplete="off">
+        <label class="form-label" for="gate-password">Password</label>
+        <div class="input-group input-group-lg">
+          <input id="gate-password" name="password" type="password" class="form-control" placeholder="Enter password" required>
+          <button class="btn btn-olive" type="submit">Enter</button>
+        </div>
+        <div id="gate-error" class="invalid-feedback d-block mt-2" style="display:none"></div>
+        <div class="small text-muted mt-3">Tip: the password is case-sensitive.</div>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/site.js"></script>
+  <script>
+    (function () {
+      const PASSCODE = "locs2026";
+      const form = document.getElementById("gate-form");
+      const passwordEl = document.getElementById("gate-password");
+      const errorEl = document.getElementById("gate-error");
+
+      function showError(msg) {
+        errorEl.textContent = msg;
+        errorEl.style.display = "block";
+        passwordEl.classList.add("is-invalid");
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        errorEl.style.display = "none";
+        passwordEl.classList.remove("is-invalid");
+
+        const val = (passwordEl.value || "").trim();
+        if (!val) return showError("Please enter the password.");
+        if (val !== PASSCODE) return showError("Incorrect password. Please try again.");
+
+        window.__KA_SITE__.setAuthed();
+        const next = window.__KA_SITE__.getNextUrl() || "our-story.html";
+        window.location.replace(next);
+      });
+
+      // focus for mobile UX
+      setTimeout(() => passwordEl.focus(), 50);
+    })();
+  </script>
+</body>
+</html>
+
