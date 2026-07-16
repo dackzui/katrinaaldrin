@@ -887,6 +887,17 @@ hr {
 }
 
 @media (max-width: 768px) {
+  .color-swatches {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+    max-width: 16rem;
+  }
+
+  .color-swatch {
+    min-width: 0;
+  }
+
   .color-swatch-circle {
     width: 2.75rem;
     height: 2.75rem;
