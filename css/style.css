@@ -810,6 +810,31 @@ hr {
   margin: 0 auto;
 }
 
+.color-swatches--compact {
+  max-width: 100%;
+  gap: 1rem 1.25rem;
+}
+
+.color-swatches--bridesmaids {
+  max-width: 100%;
+  gap: 0.9rem 0.75rem;
+}
+
+.color-swatches--bridesmaids .color-swatch {
+  min-width: 4.25rem;
+  flex: 0 0 auto;
+}
+
+.color-swatches--bridesmaids .color-swatch-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.color-swatches--bridesmaids .color-swatch-label {
+  font-size: 0.58rem;
+  max-width: 5.5rem;
+}
+
 .color-swatch {
   display: flex;
   flex-direction: column;
@@ -844,6 +869,24 @@ hr {
   max-width: 16rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.dress-code-list--start {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
+.attire-block {
+  text-align: left;
+  max-width: 16rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .attire-block {
+    margin: 0;
+  }
 }
 
 .dress-code-list li {
@@ -884,6 +927,20 @@ hr {
   max-width: 28rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.entourage-pairs {
+  list-style: none;
+  padding: 0;
+}
+
+.entourage-pairs li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(159, 180, 162, 0.12);
+}
+
+.entourage-pairs li:last-child {
+  border-bottom: none;
 }
 
 @media (max-width: 768px) {
