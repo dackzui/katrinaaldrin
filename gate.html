@@ -52,7 +52,7 @@
         if (val !== PASSCODE) return showError("Incorrect password. Please try again.");
 
         window.__KA_SITE__.setAuthed();
-        const next = window.__KA_SITE__.getNextUrl() || "our-story.html";
+        const next = window.__KA_SITE__.getNextUrl() || "wedding.html";
         window.location.replace(next);
       });
 
