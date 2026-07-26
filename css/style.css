@@ -141,6 +141,10 @@ main > section[id] {
   scroll-margin-top: 5.5rem;
 }
 
+#travel {
+  scroll-margin-top: 5.5rem;
+}
+
 .page-header::after {
   content: "";
   display: block;
