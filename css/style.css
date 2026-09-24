@@ -1144,3 +1144,12 @@ hr {
 
 /* Utility */
 .text-muted { color: var(--muted-on-dark) !important; }
+
+.stay-qr-img {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  margin-inline: auto;
+  border-radius: var(--radius-2xl);
+}
