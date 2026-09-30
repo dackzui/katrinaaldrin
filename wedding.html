@@ -562,65 +562,13 @@
 
       <div class="row g-4 justify-content-center">
         <div class="col-lg-8">
-          <div class="card rsvp-card p-4 p-lg-5">
-            <form id="rsvp-form">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-name">Name</label>
-                  <input id="rsvp-name" name="entry.515147006" type="text" class="form-control form-control-lg" placeholder="Your answer" required>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-adults">How many adults are attending?</label>
-                  <select id="rsvp-adults" name="entry.910843697" class="form-select form-select-lg" required>
-                    <option value="" selected disabled>Choose</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                  </select>
-                </div>
-                <div class="col-12">
-                  <label class="form-label" id="rsvp-parts-label">Will you be attending</label>
-                  <div class="d-flex flex-wrap gap-3" role="group" aria-labelledby="rsvp-parts-label">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.2037204763" value="Ceremony" id="part-ceremony">
-                      <label class="form-check-label" for="part-ceremony">Ceremony</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.2037204763" value="Reception" id="part-reception">
-                      <label class="form-check-label" for="part-reception">Reception</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-meal">Meal Preference (optional)</label>
-                  <select id="rsvp-meal" name="entry.809743030" class="form-select form-select-lg">
-                    <option value="" selected>Choose</option>
-                    <option value="No preference">No preference</option>
-                    <option value="Chicken">Chicken</option>
-                    <option value="Beef">Beef</option>
-                    <option value="Seafood">Seafood</option>
-                    <option value="Vegetarian">Vegetarian</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-diet">Dietary requirements (optional)</label>
-                  <input id="rsvp-diet" name="entry.1362916019" type="text" class="form-control form-control-lg" placeholder="Your answer">
-                </div>
-                <div class="col-12">
-                  <label class="form-label" for="rsvp-song">Song Request (optional)</label>
-                  <input id="rsvp-song" name="entry.1863928279" type="text" class="form-control form-control-lg" placeholder="Your answer">
-                </div>
-                <div class="col-12">
-                  <label class="form-label" for="rsvp-note">Message (optional)</label>
-                  <textarea id="rsvp-note" name="entry.804227235" class="form-control form-control-lg" rows="4" placeholder="Your answer"></textarea>
-                </div>
-              </div>
-
-              <div class="d-grid gap-2 mt-4">
-                <button type="submit" id="rsvp-submit" class="btn btn-olive btn-lg">Send RSVP</button>
-                <div id="rsvp-status" class="small text-center mt-2" role="status" aria-live="polite"></div>
-              </div>
-            </form>
+          <div class="rsvp-embed">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdykVZuvLFXLkGlKDzEgHjhwzdGIWsQpWqLuwxwjU2m7RnLqQ/viewform?embedded=true"
+              title="RSVP — Wedding of Katrina and Aldrin"
+              loading="lazy"
+              scrolling="no"
+            >Loading…</iframe>
           </div>
         </div>
       </div>
@@ -740,56 +688,5 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script>
-    (function () {
-      const FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSdykVZuvLFXLkGlKDzEgHjhwzdGIWsQpWqLuwxwjU2m7RnLqQ/formResponse";
-      const form = document.getElementById("rsvp-form");
-      if (!form) return;
-      const submitBtn = document.getElementById("rsvp-submit");
-      const statusEl = document.getElementById("rsvp-status");
-
-      function setStatus(message, type) {
-        statusEl.textContent = message;
-        statusEl.className = "small text-center mt-2";
-        if (type === "success") statusEl.classList.add("text-success");
-        if (type === "error") statusEl.classList.add("text-danger");
-        if (type === "muted") statusEl.classList.add("text-muted");
-      }
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const parts = Array.from(form.querySelectorAll('input[name="entry.2037204763"]:checked'));
-        if (!parts.length) {
-          setStatus("Please choose Ceremony, Reception, or both.", "error");
-          return;
-        }
-
-        const body = new FormData(form);
-        if (!body.get("entry.809743030")) body.delete("entry.809743030");
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending…";
-        setStatus("Sending your RSVP…", "muted");
-
-        try {
-          await fetch(FORM_ACTION, {
-            method: "POST",
-            mode: "no-cors",
-            body,
-          });
-
-          form.reset();
-          setStatus("Thank you! Your RSVP has been sent.", "success");
-          submitBtn.textContent = "Send RSVP";
-        } catch {
-          setStatus("Something went wrong. Please try again.", "error");
-          submitBtn.textContent = "Send RSVP";
-        } finally {
-          submitBtn.disabled = false;
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
