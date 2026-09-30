@@ -557,79 +557,17 @@
       <div class="text-center page-header">
         <div class="section-title small">RSVP</div>
         <h1 class="serif fw-semibold mb-3">We would be honored to have you with us.</h1>
-        <p class="text-muted mb-0">Fill this in and send your RSVP—we’ll receive it by email.</p>
+        <p class="text-muted mb-0">Fill this in and send your RSVP.</p>
       </div>
 
       <div class="row g-4 justify-content-center">
         <div class="col-lg-8">
-          <div class="card p-4 p-lg-5">
-            <form id="rsvp-form" action="https://formsubmit.co/10fd441752f7f8f6c77f8a63a6177238" method="POST">
-              <input type="hidden" name="_subject" id="rsvp-subject" value="Wedding RSVP">
-              <input type="hidden" name="_replyto" id="rsvp-replyto">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-name">Name</label>
-                  <input id="rsvp-name" name="name" type="text" class="form-control form-control-lg" placeholder="Full name" required>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-email">Email</label>
-                  <input id="rsvp-email" name="email" type="email" class="form-control form-control-lg" placeholder="you@example.com" required>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-phone">Mobile number</label>
-                  <input id="rsvp-phone" name="phone" type="tel" class="form-control form-control-lg" placeholder="+63..." required>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-attendance">Attendance</label>
-                  <select id="rsvp-attendance" name="attendance" class="form-select form-select-lg" required>
-                    <option value="" selected disabled>Select one</option>
-                    <option value="Yes — attending">Yes — attending</option>
-                    <option value="No — unable to attend">No — unable to attend</option>
-                  </select>
-                </div>
-                <div class="col-12">
-                  <label class="form-label">Which parts will you attend?</label>
-                  <div class="d-flex flex-wrap gap-3">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="attending" value="Ceremony" id="part-ceremony" checked>
-                      <label class="form-check-label" for="part-ceremony">Ceremony</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="attending" value="Reception" id="part-reception" checked>
-                      <label class="form-check-label" for="part-reception">Reception</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-meal">Meal preference (optional)</label>
-                  <select id="rsvp-meal" name="meal" class="form-select form-select-lg">
-                    <option value="">No preference</option>
-                    <option>Chicken</option>
-                    <option>Beef</option>
-                    <option>Seafood</option>
-                    <option>Vegetarian</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="rsvp-diet">Dietary requirements (optional)</label>
-                  <input id="rsvp-diet" name="dietary" type="text" class="form-control form-control-lg" placeholder="Allergies, restrictions, etc.">
-                </div>
-                <div class="col-12">
-                  <label class="form-label" for="rsvp-song">Song request (optional)</label>
-                  <input id="rsvp-song" name="song" type="text" class="form-control form-control-lg" placeholder="A song that gets you on the dance floor">
-                </div>
-                <div class="col-12">
-                  <label class="form-label" for="rsvp-note">Message (optional)</label>
-                  <textarea id="rsvp-note" name="message" class="form-control form-control-lg" rows="4" placeholder="Anything you'd like to share with us"></textarea>
-                </div>
-              </div>
-
-              <div class="d-grid gap-2 mt-4">
-                <button type="submit" id="rsvp-submit" class="btn btn-olive btn-lg">Send RSVP</button>
-              </div>
-            </form>
+          <div class="rsvp-embed">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdykVZuvLFXLkGlKDzEgHjhwzdGIWsQpWqLuwxwjU2m7RnLqQ/viewform?embedded=true"
+              title="RSVP — Wedding of Katrina and Aldrin"
+              loading="lazy"
+            >Loading…</iframe>
           </div>
         </div>
       </div>
@@ -749,18 +687,5 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script>
-    (function () {
-      const form = document.getElementById("rsvp-form");
-      if (!form) return;
-
-      form.addEventListener("submit", () => {
-        const name = document.getElementById("rsvp-name").value.trim();
-        const email = document.getElementById("rsvp-email").value.trim();
-        document.getElementById("rsvp-subject").value = name ? `Wedding RSVP from ${name}` : "Wedding RSVP";
-        document.getElementById("rsvp-replyto").value = email;
-      });
-    })();
-  </script>
 </body>
 </html>
